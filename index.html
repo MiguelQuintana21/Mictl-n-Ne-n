@@ -200,9 +200,8 @@
                 
                 <!-- Enlaces de navegación (visibles en escritorio) -->
                 <nav class="hidden lg:flex space-x-10">
-                    <a href="#" class="text-white hover:text-gray-300 transition-colors font-medium header-font tracking-wider text-lg">INICIO</a>
-                    <a href="#" class="text-white hover:text-gray-300 transition-colors font-medium header-font tracking-wider text-lg">DISEÑOS</a>
-                    <a href="#" class="text-white hover:text-gray-300 transition-colors font-medium header-font tracking-wider text-lg">COLECCIÓN</a>
+                    <a href="index.html" class="text-white hover:text-gray-300 transition-colors font-medium header-font tracking-wider text-lg">INICIO</a>
+                    <a href="colecciones.html" class="text-white hover:text-gray-300 transition-colors font-medium header-font tracking-wider text-lg">COLECCIÓN</a>
                 </nav>
                 
                 <!-- Logo Central -->
@@ -218,7 +217,7 @@
 
                 <!-- Enlaces secundarios (visibles en escritorio) -->
                 <nav class="hidden lg:flex space-x-10">
-                    <a href="#" class="text-white hover:text-gray-300 transition-colors font-medium header-font tracking-wider text-lg">PERSONALIZAR</a>
+                    <a href="personalizar.html" class="text-white hover:text-gray-300 transition-colors font-medium header-font tracking-wider text-lg">PERSONALIZAR</a>
                     <a href="#" class="text-white hover:text-gray-300 transition-colors font-medium header-font tracking-wider text-lg">CONTACTO</a>
                 </nav>
                 
@@ -235,10 +234,9 @@
             <!-- Menú móvil (oculto por defecto) -->
             <div id="mobile-menu" class="hidden mt-4 pb-2">
                 <div class="flex flex-col space-y-3">
-                    <a href="#" class="text-white hover:text-gray-300 transition-colors font-medium header-font tracking-wider text-lg">INICIO</a>
-                    <a href="#" class="text-white hover:text-gray-300 transition-colors font-medium header-font tracking-wider text-lg">DISEÑOS</a>
-                    <a href="#" class="text-white hover:text-gray-300 transition-colors font-medium header-font tracking-wider text-lg">COLECCIÓN</a>
-                    <a href="#" class="text-white hover:text-gray-300 transition-colors font-medium header-font tracking-wider text-lg">PERSONALIZAR</a>
+                    <a href="index.html" class="text-white hover:text-gray-300 transition-colors font-medium header-font tracking-wider text-lg">INICIO</a>
+                    <a href="colecciones.html" class="text-white hover:text-gray-300 transition-colors font-medium header-font tracking-wider text-lg">COLECCIÓN</a>
+                    <a href="personalizar.html" class="text-white hover:text-gray-300 transition-colors font-medium header-font tracking-wider text-lg">PERSONALIZAR</a>
                     <a href="#" class="text-white hover:text-gray-300 transition-colors font-medium header-font tracking-wider text-lg">CONTACTO</a>
                 </div>
             </div>
@@ -247,84 +245,177 @@
     </header>
     <div class="bg-white shadow-sm">
         <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-          <h1 class="text-3xl font-bold header-font tracking-tight text-gray-900">CREA TU NEÓN PERSONALIZADO</h1>
+          <h1 class="text-3xl font-bold header-font tracking-tight text-gray-900">INICIO</h1>
         </div>
       </div>
     <!-- Contenido de ejemplo -->
     <main class="container mx-auto">
-       
-        
-        <!-- Editor de neón -->
-        <div class="neon-creator">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Columna de controles -->
-                <div>
-                    <div class="mb-6">
-                        <label for="neon-text-input" class="block text-white text-lg mb-2">Tu texto:</label>
-                        <input type="text" id="neon-text-input" class="w-full p-3 bg-gray-800 text-white border border-gray-700 rounded-lg focus:outline-none focus:border-pink-500" placeholder="Escribe tu texto aquí..." maxlength="25" value="MICTLAN">
-                        <p class="text-gray-400 mt-2 text-sm">Máximo 25 caracteres</p>
-                    </div>
-                    
-                    <div class="mb-6">
-                        <label class="block text-white text-lg mb-2">Selecciona el color:</label>
-                        <div class="flex space-x-2">
-                            <span class="color-btn active" data-color="pink" style="background-color: #ff00de;"></span>
-                            <span class="color-btn" data-color="blue" style="background-color: #0099ff;"></span>
-                            <span class="color-btn" data-color="green" style="background-color: #04ff00;"></span>
-                            <span class="color-btn" data-color="purple" style="background-color: #9900ff;"></span>
-                            <span class="color-btn" data-color="orange" style="background-color: #ff6600;"></span>
-                        </div>
-                    </div>
-                    
-                    <div class="mb-6">
-                        <label class="block text-white text-lg mb-2">Selecciona la fuente:</label>
-                        <select id="font-selector" class="w-full p-3 bg-gray-800 text-white border border-gray-700 rounded-lg focus:outline-none focus:border-pink-500">
-                            <option value="font-bebas">Bebas Neue</option>
-                            <option value="font-pacifico">Pacifico</option>
-                            <option value="font-dancing">Dancing Script</option>
-                            <option value="font-marker">Permanent Marker</option>
-                            <option value="font-sacramento">Sacramento</option>
-                        </select>
-                    </div>
-                    
-                    <div class="mb-6">
-                        <label class="block text-white text-lg mb-2">Tamaño del texto:</label>
-                        <input type="range" id="size-slider" min="2" max="7" value="4" class="w-full">
-                        <div class="flex justify-between text-gray-400 text-sm">
-                            <span>Pequeño</span>
-                            <span>Grande</span>
-                        </div>
-                    </div>
-                    
-                    <div class="mb-6">
-                        <label class="block text-white text-lg mb-2">Intensidad del brillo:</label>
-                        <input type="range" id="glow-slider" min="1" max="5" value="3" class="w-full">
-                        <div class="flex justify-between text-gray-400 text-sm">
-                            <span>Suave</span>
-                            <span>Intenso</span>
-                        </div>
-                    </div>
+
+        <div class="relative overflow-hidden bg-white">
+            <div class="pt-16 pb-80 sm:pt-24 sm:pb-40 lg:pt-40 lg:pb-48">
+              <div class="relative mx-auto max-w-7xl px-4 sm:static sm:px-6 lg:px-8">
+                <div class="sm:max-w-lg">
+                  <h1 class="text-4xl font-bold header-font tracking-tight text-gray-900 sm:text-6xl">Donde la cultura brilla</h1>
+                  <p class="mt-4 text-xl text-gray-500 header-font">échale un vistazo a la colección de neones de Mictlan Neon.</p>
                 </div>
-                
-                <!-- Columna de vista previa -->
                 <div>
-                    <h3 class="text-white text-lg mb-4">Vista previa:</h3>
-                    <div class="neon-preview">
-                        <div id="neon-preview-text" class="neon-text neon-pink font-bebas">MICTLAN</div>
-                    </div>
-                    
-                    <div class="flex flex-col sm:flex-row justify-between mt-4">
-                        <div class="mb-4 sm:mb-0">
-                            <p class="text-white mb-2">Precio estimado:</p>
-                            <p class="text-2xl text-pink-500 font-bold">$<span id="price-display">599</span> MXN</p>
+                  <div class="mt-10">
+                    <!-- Decorative image grid -->
+                    <div aria-hidden="true" class="pointer-events-none lg:absolute lg:inset-y-0 lg:mx-auto lg:w-full lg:max-w-7xl">
+                      <div class="absolute transform sm:top-0 sm:left-1/2 sm:translate-x-8 lg:top-1/2 lg:left-1/2 lg:translate-x-8 lg:-translate-y-1/2">
+                        <div class="flex items-center space-x-6 lg:space-x-8">
+                          <div class="grid shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
+                            <div class="h-64 w-44 overflow-hidden rounded-lg sm:opacity-0 lg:opacity-100">
+                              <img src="img/img1.jpg" alt="" class="size-full object-cover">
+                            </div>
+                            <div class="h-64 w-44 overflow-hidden rounded-lg">
+                              <img src="img/img2.jpg" alt="" class="size-full object-cover">
+                            </div>
+                          </div>
+                          <div class="grid shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
+                            <div class="h-64 w-44 overflow-hidden rounded-lg">
+                              <img src="img/img3.jpg" alt="" class="size-full object-cover">
+                            </div>
+                            <div class="h-64 w-44 overflow-hidden rounded-lg">
+                              <img src="img/img11.jpg" alt="" class="size-full object-cover">
+                            </div>
+                            <div class="h-64 w-44 overflow-hidden rounded-lg">
+                              <img src="img/img5.jpg" alt="" class="size-full object-cover">
+                            </div>
+                          </div>
+                          <div class="grid shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
+                            <div class="h-64 w-44 overflow-hidden rounded-lg">
+                              <img src="img/img6.jpg" alt="" class="size-full object-cover">
+                            </div>
+                            <div class="h-64 w-44 overflow-hidden rounded-lg">
+                              <img src="img/img7.jpg" alt="" class="size-full object-cover">
+                            </div>
+                          </div>
                         </div>
-                        <button class="bg-pink-600 hover:bg-pink-700 text-white font-bold py-3 px-6 rounded-lg transition-colors shadow-lg">
-                            AGREGAR AL CARRITO
-                        </button>
+                      </div>
                     </div>
+          
+                    <a href="#" class="inline-block rounded-md border border-transparent bg-black px-8 py-3 text-center font-medium text-white hover:bg-gray-700 header-font">VER COLECCIONES</a>
+                  </div>
                 </div>
+              </div>
             </div>
-        </div>
+          </div>
+          
+
+
+          <div class="bg-white py-50 py-24 sm:py-32">
+            <div class="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
+              <p class="mx-auto mt-2 max-w-lg text-center text-4xl font-semibold tracking-tight text-balance text-gray-950 sm:text-5xl header-font">¿QUÉ HACEMOS EN MICTLAN NEON?
+            </p>
+              <div class="mt-10 grid gap-4 sm:mt-16 lg:grid-cols-3 lg:grid-rows-2">
+                <div class="relative lg:row-span-2">
+                  <div class="absolute inset-px rounded-lg bg-white lg:rounded-l-[2rem]"></div>
+                  <div class="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)] lg:rounded-l-[calc(2rem+1px)]">
+                    <div class="px-8 pt-8 pb-3 sm:px-10 sm:pt-10 sm:pb-0">
+                      <p class="mt-2 text-lg font-medium tracking-tight text-gray-950 max-lg:text-center header-font">Letreros de Neón y Acrílicos</p>
+                      <p class="mt-2 max-w-lg text-sm/6 text-gray-600 max-lg:text-center header-font">Tu idea, nuestra luz. Dale forma con neón y acrílico.</p>
+                    </div>
+                    <div class="@container relative min-h-[30rem] w-full grow max-lg:mx-auto max-lg:max-w-sm">
+                      <div class="absolute inset-x-10 top-10 bottom-0 overflow-hidden rounded-t-[12cqw] border-x-[3cqw] border-t-[3cqw] border-black bg-black shadow-2xl">
+                        <img class="size-full object-cover object-top" src="img/img9.png" alt="">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="pointer-events-none absolute inset-px rounded-lg shadow-sm ring-1 ring-black/5 lg:rounded-l-[2rem]"></div>
+                </div>
+                <div class="relative max-lg:row-start-1">
+                  <div class="absolute inset-px rounded-lg bg-white max-lg:rounded-t-[2rem]"></div>
+                  <div class="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)] max-lg:rounded-t-[calc(2rem+1px)]">
+                    <div class="px-8 pt-8 sm:px-10 sm:pt-10">
+                      <p class="mt-2 text-lg font-medium tracking-tight text-gray-950 max-lg:text-center header-font">VENTA DE LETREROS DE NEÓN Y ACRÍLICOS</p>
+                    </div>
+                    <div class="flex flex-1 items-center justify-center px-8 max-lg:pt-10 max-lg:pb-12 sm:px-10 lg:pb-2">
+                      <img class="h-[min(80px,40cqw)] object-cover" src="img/venta.png" alt="">
+                    </div>
+                  </div>
+                  <div class="pointer-events-none absolute inset-px rounded-lg shadow-sm ring-1 ring-black/5 max-lg:rounded-t-[2rem]"></div>
+                </div>
+                <div class="relative max-lg:row-start-3 lg:col-start-2 lg:row-start-2">
+                  <div class="absolute inset-px rounded-lg bg-white"></div>
+                  <div class="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)]">
+                    <div class="px-8 pt-8 sm:px-10 sm:pt-10">
+                      <p class="mt-2 text-lg font-medium tracking-tight text-gray-950 max-lg:text-center header-font">RENTA DE LETREROS DE NEÓN Y ACRÍLICOS</p>
+                    </div>
+                    <div class="@container flex flex-1 items-center justify-center max-lg:py-6 lg:pb-2">
+                      <img class="h-[min(80px,40cqw)] object-cover" src="img/renta.png" alt="">
+                    </div>
+                  </div>
+                  <div class="pointer-events-none absolute inset-px rounded-lg shadow-sm ring-1 ring-black/5"></div>
+                </div>
+                <div class="relative lg:row-span-2">
+                  <div class="absolute inset-px rounded-lg bg-white max-lg:rounded-b-[2rem] lg:rounded-r-[2rem]"></div>
+                  <div class="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)] max-lg:rounded-b-[calc(2rem+1px)] lg:rounded-r-[calc(2rem+1px)]">
+                    <div class="px-8 pt-8 pb-3 sm:px-10 sm:pt-10 sm:pb-0">
+                      <p class="mt-2 text-lg font-medium tracking-tight text-gray-950 max-lg:text-center header-font">CURSOS DE FABRICACIÓN DE NEÓN Y ACRÍLICOS</p>
+                      <p class="mt-2 max-w-lg text-sm/6 text-gray-600 max-lg:text-center header-font">Transforma tus ideas en luz con nuestras clases prácticas.</p>
+                    </div>
+                    <div class="relative min-h-[30rem] w-full grow">
+                      <div class="absolute top-10 right-0 bottom-0 left-10 overflow-hidden rounded-tl-xl bg-gray-900 shadow-2xl">
+                        <div class="flex bg-gray-800/40 ring-1 ring-white/5">
+                            <div class="@container relative min-h-[30rem] w-full grow max-lg:mx-auto max-lg:max-w-sm">
+                                <div class="absolute inset-x-10 top-10 bottom-0 overflow-hidden ">
+                                  <img class="size-full object-cover object-top" src="img/img10.jpg" alt="">
+                                </div>
+                              </div>
+                        </div>
+                        <div class="px-6 pt-6 pb-14">
+                          <!-- Your code example -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="pointer-events-none absolute inset-px rounded-lg shadow-sm ring-1 ring-black/5 max-lg:rounded-b-[2rem] lg:rounded-r-[2rem]"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+
+          <div class="bg-white shadow-sm">
+            <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+              <h1 class="text-3xl font-bold header-font tracking-tight text-gray-900">NUESTROS PRODUCTOS</h1>
+            </div>
+          </div>
+       
+          <div class="bg-white">
+            <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+              <h2 class="sr-only">Products</h2>
+          
+              <div class="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
+                <a href="#" class="group">
+                  <img src="img/img6.jpg" alt="Tall slender porcelain bottle with natural clay textured body and cork stopper." class="aspect-square w-full rounded-lg bg-gray-200 object-cover group-hover:opacity-75 xl:aspect-7/8">
+                  <h3 class="mt-4 text-sm text-gray-700">NEÓN MUSCULOS</h3>
+                  <p class="mt-1 text-lg font-medium text-gray-900">$2000MX</p>
+                </a>
+                <a href="#" class="group">
+                  <img src="img/img3.jpg" alt="Olive drab green insulated bottle with flared screw lid and flat top." class="aspect-square w-full rounded-lg bg-gray-200 object-cover group-hover:opacity-75 xl:aspect-7/8">
+                  <h3 class="mt-4 text-sm text-gray-700">NEÓN PROPUESTA MATRIMONIAL</h3>
+                  <p class="mt-1 text-lg font-medium text-gray-900">$3000MX</p>
+                </a>
+                <a href="#" class="group">
+                  <img src="img/img2.jpg" alt="Person using a pen to cross a task off a productivity paper card." class="aspect-square w-full rounded-lg bg-gray-200 object-cover group-hover:opacity-75 xl:aspect-7/8">
+                  <h3 class="mt-4 text-sm text-gray-700">NEÓN CAFETERÍA</h3>
+                  <p class="mt-1 text-lg font-medium text-gray-900">$3500MX</p>
+                </a>
+                <a href="#" class="group">
+                  <img src="img/img7.jpg" alt="Hand holding black machined steel mechanical pencil with brass tip and top." class="aspect-square w-full rounded-lg bg-gray-200 object-cover group-hover:opacity-75 xl:aspect-7/8">
+                  <h3 class="mt-4 text-sm text-gray-700">NEÓN JALAPEÑOS</h3>
+                  <p class="mt-1 text-lg font-medium text-gray-900">$2500MX</p>
+                </a>
+          
+                <!-- More products... -->
+              </div>
+            </div>
+          </div>
+          
+          
+     
     </main>
     
     <script>
@@ -342,112 +433,6 @@
     </script>
 
 
-    <script>
-           // Funcionalidad para el editor de neón
-            const textInput = document.getElementById('neon-text-input');
-            const previewText = document.getElementById('neon-preview-text');
-            const fontSelector = document.getElementById('font-selector');
-            const sizeSlider = document.getElementById('size-slider');
-            const glowSlider = document.getElementById('glow-slider');
-            const colorButtons = document.querySelectorAll('.color-btn');
-            const priceDisplay = document.getElementById('price-display');
-            
-            // Actualizar texto en tiempo real
-            textInput.addEventListener('input', updateNeonPreview);
-            
-            // Cambiar fuente
-            fontSelector.addEventListener('change', updateNeonPreview);
-            
-            // Cambiar tamaño
-            sizeSlider.addEventListener('input', updateNeonPreview);
-            
-            // Cambiar brillo
-            glowSlider.addEventListener('input', updateNeonPreview);
-            
-            // Cambiar color
-            colorButtons.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    // Quitar active de todos los botones
-                    colorButtons.forEach(b => b.classList.remove('active'));
-                    // Añadir active al botón clickeado
-                    btn.classList.add('active');
-                    updateNeonPreview();
-                });
-            });
-            
-            // Función para actualizar la vista previa
-            function updateNeonPreview() {
-                // Actualizar texto
-                let text = textInput.value.trim();
-                if (text === '') {
-                    text = 'NEON';
-                }
-                previewText.textContent = text;
-                
-                // Actualizar fuente
-                previewText.className = 'neon-text';
-                previewText.classList.add(fontSelector.value);
-                
-                // Actualizar tamaño
-                previewText.style.fontSize = `${sizeSlider.value}rem`;
-                
-                // Actualizar color y brillo
-                const activeColor = document.querySelector('.color-btn.active').dataset.color;
-                previewText.classList.add(`neon-${activeColor}`);
-                
-                // Ajustar intensidad del brillo según el slider
-                const glowIntensity = glowSlider.value;
-                updateGlowIntensity(activeColor, glowIntensity);
-                
-                // Actualizar precio basado en la longitud del texto y complejidad
-                updatePrice(text);
-            }
-            
-            // Función para actualizar la intensidad del brillo
-            function updateGlowIntensity(color, intensity) {
-                let baseColor;
-                
-                // Definir color base según la selección
-                switch(color) {
-                    case 'pink': baseColor = '#ff00de'; break;
-                    case 'blue': baseColor = '#0099ff'; break;
-                    case 'green': baseColor = '#04ff00'; break;
-                    case 'purple': baseColor = '#9900ff'; break;
-                    case 'orange': baseColor = '#ff6600'; break;
-                    default: baseColor = '#ff00de';
-                }
-                
-                // Ajustar las sombras según la intensidad
-                let textShadow = `0 0 5px #fff, 0 0 10px #fff`;
-                
-                for (let i = 2; i <= intensity; i++) {
-                    const blur = i * 10 + (i * 5);
-                    textShadow += `, 0 0 ${blur}px ${baseColor}`;
-                }
-                
-                previewText.style.textShadow = textShadow;
-            }
-            
-            // Función para calcular el precio
-            function updatePrice(text) {
-                // Precio base
-                let basePrice = 499;
-                
-                // Añadir precio por longitud del texto
-                const length = text.length;
-                let additionalPrice = length * 5;
-                
-                // Limitar el precio máximo
-                const totalPrice = Math.min(999, basePrice + additionalPrice);
-                
-                // Mostrar el precio
-                priceDisplay.textContent = totalPrice;
-            }
-            
-            // Inicializar la vista previa
-            updateNeonPreview();
-            ;
-        
-    </script>
+  
 </body>
 </html>
