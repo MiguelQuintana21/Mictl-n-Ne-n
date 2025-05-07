@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mictlan Neon</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+        
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+        
+        .header-font {
+            font-family: 'Bebas Neue', sans-serif;
+        }
+        
+        .logo-container {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+        }
+        
+        .logo-circle {
+            width: 100%;
+            height: 100%;
+            background-color: transparent;
+            border: 3px solid #ffffff;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        /* Para usar con una imagen como logo */
+        .logo-circle img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+      /* Área de creación de neón */
+      .neon-creator {
+            background-color: #0c0c0c;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-top: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+        
+        /* Estilos para la vista previa del neón */
+        .neon-preview {
+            min-height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000;
+            border-radius: 8px;
+            margin: 2rem 0;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* El texto neón */
+        .neon-text {
+            font-family: 'Bebas Neue', sans-serif;
+            text-align: center;
+            color: #fff;
+            font-size: 4rem;
+            transition: all 0.3s ease;
+        }
+        
+        /* Estilos de colores para los neones */
+        .neon-pink {
+            text-shadow: 
+                0 0 5px #fff,
+                0 0 10px #fff,
+                0 0 20px #ff00de,
+                0 0 30px #ff00de,
+                0 0 40px #ff00de,
+                0 0 55px #ff00de;
+        }
+        
+        .neon-blue {
+            text-shadow: 
+                0 0 5px #fff,
+                0 0 10px #fff,
+                0 0 20px #0099ff,
+                0 0 30px #0099ff,
+                0 0 40px #0099ff,
+                0 0 55px #0099ff;
+        }
+        
+        .neon-green {
+            text-shadow: 
+                0 0 5px #fff,
+                0 0 10px #fff,
+                0 0 20px #04ff00,
+                0 0 30px #04ff00,
+                0 0 40px #04ff00,
+                0 0 55px #04ff00;
+        }
+        
+        .neon-purple {
+            text-shadow: 
+                0 0 5px #fff,
+                0 0 10px #fff,
+                0 0 20px #9900ff,
+                0 0 30px #9900ff,
+                0 0 40px #9900ff,
+                0 0 55px #9900ff;
+        }
+        
+        .neon-orange {
+            text-shadow: 
+                0 0 5px #fff,
+                0 0 10px #fff,
+                0 0 20px #ff6600,
+                0 0 30px #ff6600,
+                0 0 40px #ff6600,
+                0 0 55px #ff6600;
+        }
+        
+        /* Botones para cambiar el color */
+        .color-btn {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: inline-block;
+            transition: transform 0.2s;
+            margin: 0 5px;
+        }
+        
+        .color-btn:hover {
+            transform: scale(1.1);
+        }
+        
+        .color-btn.active {
+            border: 2px solid white;
+        }
+        
+        /* Estilos de fuente */
+        .font-bebas { font-family: 'Bebas Neue', sans-serif; }
+        .font-pacifico { font-family: 'Pacifico', cursive; }
+        .font-dancing { font-family: 'Dancing Script', cursive; }
+        .font-marker { font-family: 'Permanent Marker', cursive; }
+        .font-sacramento { font-family: 'Sacramento', cursive; }
+        
+        /* Estilos responsivos */
+        @media (max-width: 768px) {
+            .logo-container {
+                width: 100px;
+                height: 100px;
+            }
+            .neon-title {
+                font-size: 3.5rem;
+            }
+            .neon-text {
+                font-size: 3rem;
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .logo-container {
+                width: 80px;
+                height: 80px;
+            }
+            .neon-title {
+                font-size: 2.5rem;
+            }
+            .neon-text {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Header con logo de Mictlan Neon -->
+    <header class="bg-black py-4 relative">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center">
+                <!-- Menú hamburguesa (visible en móvil) -->
+                <div class="block lg:hidden">
+                    <button id="menu-toggle" class="text-white hover:text-gray-300 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+                
+                <!-- Enlaces de navegación (visibles en escritorio) -->
+                <nav class="hidden lg:flex space-x-10">
+                    <a href="#" class="text-white hover:text-gray-300 transition-colors font-medium header-font tracking-wider text-lg">INICIO</a>
+                    <a href="#" class="text-white hover:text-gray-300 transition-colors font-medium header-font tracking-wider text-lg">DISEÑOS</a>
+                    <a href="#" class="text-white hover:text-gray-300 transition-colors font-medium header-font tracking-wider text-lg">COLECCIÓN</a>
+                </nav>
+                
+                <!-- Logo Central -->
+                <div class="logo-container">
+                    <div class="logo-circle">
+                        <!-- Opción 1: Usar una imagen como logo -->
+                        <img src="img/Mictlan_neon.png" alt="Logo">
+                        
+                        
+                    </div>
+                </div>
+                
+
+                <!-- Enlaces secundarios (visibles en escritorio) -->
+                <nav class="hidden lg:flex space-x-10">
+                    <a href="#" class="text-white hover:text-gray-300 transition-colors font-medium header-font tracking-wider text-lg">PERSONALIZAR</a>
+                    <a href="#" class="text-white hover:text-gray-300 transition-colors font-medium header-font tracking-wider text-lg">CONTACTO</a>
+                </nav>
+                
+                <!-- Carrito (visible en móvil) -->
+                <div class="block lg:hidden">
+                    <button class="text-white hover:text-gray-300 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Menú móvil (oculto por defecto) -->
+            <div id="mobile-menu" class="hidden mt-4 pb-2">
+                <div class="flex flex-col space-y-3">
+                    <a href="#" class="text-white hover:text-gray-300 transition-colors font-medium header-font tracking-wider text-lg">INICIO</a>
+                    <a href="#" class="text-white hover:text-gray-300 transition-colors font-medium header-font tracking-wider text-lg">DISEÑOS</a>
+                    <a href="#" class="text-white hover:text-gray-300 transition-colors font-medium header-font tracking-wider text-lg">COLECCIÓN</a>
+                    <a href="#" class="text-white hover:text-gray-300 transition-colors font-medium header-font tracking-wider text-lg">PERSONALIZAR</a>
+                    <a href="#" class="text-white hover:text-gray-300 transition-colors font-medium header-font tracking-wider text-lg">CONTACTO</a>
+                </div>
+            </div>
+        </div>
+        
+    </header>
+    <div class="bg-white shadow-sm">
+        <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+          <h1 class="text-3xl font-bold header-font tracking-tight text-gray-900">CREA TU NEÓN PERSONALIZADO</h1>
+        </div>
+      </div>
+    <!-- Contenido de ejemplo -->
+    <main class="container mx-auto">
+       
+        
+        <!-- Editor de neón -->
+        <div class="neon-creator">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Columna de controles -->
+                <div>
+                    <div class="mb-6">
+                        <label for="neon-text-input" class="block text-white text-lg mb-2">Tu texto:</label>
+                        <input type="text" id="neon-text-input" class="w-full p-3 bg-gray-800 text-white border border-gray-700 rounded-lg focus:outline-none focus:border-pink-500" placeholder="Escribe tu texto aquí..." maxlength="25" value="MICTLAN">
+                        <p class="text-gray-400 mt-2 text-sm">Máximo 25 caracteres</p>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label class="block text-white text-lg mb-2">Selecciona el color:</label>
+                        <div class="flex space-x-2">
+                            <span class="color-btn active" data-color="pink" style="background-color: #ff00de;"></span>
+                            <span class="color-btn" data-color="blue" style="background-color: #0099ff;"></span>
+                            <span class="color-btn" data-color="green" style="background-color: #04ff00;"></span>
+                            <span class="color-btn" data-color="purple" style="background-color: #9900ff;"></span>
+                            <span class="color-btn" data-color="orange" style="background-color: #ff6600;"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label class="block text-white text-lg mb-2">Selecciona la fuente:</label>
+                        <select id="font-selector" class="w-full p-3 bg-gray-800 text-white border border-gray-700 rounded-lg focus:outline-none focus:border-pink-500">
+                            <option value="font-bebas">Bebas Neue</option>
+                            <option value="font-pacifico">Pacifico</option>
+                            <option value="font-dancing">Dancing Script</option>
+                            <option value="font-marker">Permanent Marker</option>
+                            <option value="font-sacramento">Sacramento</option>
+                        </select>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label class="block text-white text-lg mb-2">Tamaño del texto:</label>
+                        <input type="range" id="size-slider" min="2" max="7" value="4" class="w-full">
+                        <div class="flex justify-between text-gray-400 text-sm">
+                            <span>Pequeño</span>
+                            <span>Grande</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label class="block text-white text-lg mb-2">Intensidad del brillo:</label>
+                        <input type="range" id="glow-slider" min="1" max="5" value="3" class="w-full">
+                        <div class="flex justify-between text-gray-400 text-sm">
+                            <span>Suave</span>
+                            <span>Intenso</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Columna de vista previa -->
+                <div>
+                    <h3 class="text-white text-lg mb-4">Vista previa:</h3>
+                    <div class="neon-preview">
+                        <div id="neon-preview-text" class="neon-text neon-pink font-bebas">MICTLAN</div>
+                    </div>
+                    
+                    <div class="flex flex-col sm:flex-row justify-between mt-4">
+                        <div class="mb-4 sm:mb-0">
+                            <p class="text-white mb-2">Precio estimado:</p>
+                            <p class="text-2xl text-pink-500 font-bold">$<span id="price-display">599</span> MXN</p>
+                        </div>
+                        <button class="bg-pink-600 hover:bg-pink-700 text-white font-bold py-3 px-6 rounded-lg transition-colors shadow-lg">
+                            AGREGAR AL CARRITO
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <script>
+        // Toggle para el menú móvil
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuToggle = document.getElementById('menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            menuToggle.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        });
+
+        
+    </script>
+
+
+    <script>
+           // Funcionalidad para el editor de neón
+            const textInput = document.getElementById('neon-text-input');
+            const previewText = document.getElementById('neon-preview-text');
+            const fontSelector = document.getElementById('font-selector');
+            const sizeSlider = document.getElementById('size-slider');
+            const glowSlider = document.getElementById('glow-slider');
+            const colorButtons = document.querySelectorAll('.color-btn');
+            const priceDisplay = document.getElementById('price-display');
+            
+            // Actualizar texto en tiempo real
+            textInput.addEventListener('input', updateNeonPreview);
+            
+            // Cambiar fuente
+            fontSelector.addEventListener('change', updateNeonPreview);
+            
+            // Cambiar tamaño
+            sizeSlider.addEventListener('input', updateNeonPreview);
+            
+            // Cambiar brillo
+            glowSlider.addEventListener('input', updateNeonPreview);
+            
+            // Cambiar color
+            colorButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Quitar active de todos los botones
+                    colorButtons.forEach(b => b.classList.remove('active'));
+                    // Añadir active al botón clickeado
+                    btn.classList.add('active');
+                    updateNeonPreview();
+                });
+            });
+            
+            // Función para actualizar la vista previa
+            function updateNeonPreview() {
+                // Actualizar texto
+                let text = textInput.value.trim();
+                if (text === '') {
+                    text = 'NEON';
+                }
+                previewText.textContent = text;
+                
+                // Actualizar fuente
+                previewText.className = 'neon-text';
+                previewText.classList.add(fontSelector.value);
+                
+                // Actualizar tamaño
+                previewText.style.fontSize = `${sizeSlider.value}rem`;
+                
+                // Actualizar color y brillo
+                const activeColor = document.querySelector('.color-btn.active').dataset.color;
+                previewText.classList.add(`neon-${activeColor}`);
+                
+                // Ajustar intensidad del brillo según el slider
+                const glowIntensity = glowSlider.value;
+                updateGlowIntensity(activeColor, glowIntensity);
+                
+                // Actualizar precio basado en la longitud del texto y complejidad
+                updatePrice(text);
+            }
+            
+            // Función para actualizar la intensidad del brillo
+            function updateGlowIntensity(color, intensity) {
+                let baseColor;
+                
+                // Definir color base según la selección
+                switch(color) {
+                    case 'pink': baseColor = '#ff00de'; break;
+                    case 'blue': baseColor = '#0099ff'; break;
+                    case 'green': baseColor = '#04ff00'; break;
+                    case 'purple': baseColor = '#9900ff'; break;
+                    case 'orange': baseColor = '#ff6600'; break;
+                    default: baseColor = '#ff00de';
+                }
+                
+                // Ajustar las sombras según la intensidad
+                let textShadow = `0 0 5px #fff, 0 0 10px #fff`;
+                
+                for (let i = 2; i <= intensity; i++) {
+                    const blur = i * 10 + (i * 5);
+                    textShadow += `, 0 0 ${blur}px ${baseColor}`;
+                }
+                
+                previewText.style.textShadow = textShadow;
+            }
+            
+            // Función para calcular el precio
+            function updatePrice(text) {
+                // Precio base
+                let basePrice = 499;
+                
+                // Añadir precio por longitud del texto
+                const length = text.length;
+                let additionalPrice = length * 5;
+                
+                // Limitar el precio máximo
+                const totalPrice = Math.min(999, basePrice + additionalPrice);
+                
+                // Mostrar el precio
+                priceDisplay.textContent = totalPrice;
+            }
+            
+            // Inicializar la vista previa
+            updateNeonPreview();
+            ;
+        
+    </script>
+</body>
+</html>
