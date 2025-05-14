@@ -1,0 +1,182 @@
+body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+        
+        .header-font {
+            font-family: 'Bebas Neue', sans-serif;
+        }
+        
+        .logo-container {
+            position: absolute;
+            width: 115px;
+            height: 115px;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+        }
+        
+        .logo-circle {
+            width: 115%;
+            height: 115%;
+            background-color: transparent;
+            border: 3px solid #ffffff;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .container_footer_logo {
+            width: 100px;
+            height: 100px;
+            top: 10px;
+            left: 50%;
+            border: 3px solid #ffffff;
+            border-radius: 50%;
+        }
+        
+        /* Para usar con una imagen como logo */
+        .logo-circle img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+      /* Área de creación de neón */
+      .neon-creator {
+            background-color: #0c0c0c;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-top: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+        
+        /* Estilos para la vista previa del neón */
+        .neon-preview {
+            min-height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000;
+            border-radius: 8px;
+            margin: 2rem 0;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* El texto neón */
+        .neon-text {
+            font-family: 'Bebas Neue', sans-serif;
+            text-align: center;
+            color: #fff;
+            font-size: 4rem;
+            transition: all 0.3s ease;
+        }
+        
+        /* Estilos de colores para los neones */
+        .neon-pink {
+            text-shadow: 
+                0 0 5px #fff,
+                0 0 10px #fff,
+                0 0 20px #ff00de,
+                0 0 30px #ff00de,
+                0 0 40px #ff00de,
+                0 0 55px #ff00de;
+        }
+        
+        .neon-blue {
+            text-shadow: 
+                0 0 5px #fff,
+                0 0 10px #fff,
+                0 0 20px #0099ff,
+                0 0 30px #0099ff,
+                0 0 40px #0099ff,
+                0 0 55px #0099ff;
+        }
+        
+        .neon-green {
+            text-shadow: 
+                0 0 5px #fff,
+                0 0 10px #fff,
+                0 0 20px #04ff00,
+                0 0 30px #04ff00,
+                0 0 40px #04ff00,
+                0 0 55px #04ff00;
+        }
+        
+        .neon-purple {
+            text-shadow: 
+                0 0 5px #fff,
+                0 0 10px #fff,
+                0 0 20px #9900ff,
+                0 0 30px #9900ff,
+                0 0 40px #9900ff,
+                0 0 55px #9900ff;
+        }
+        
+        .neon-orange {
+            text-shadow: 
+                0 0 5px #fff,
+                0 0 10px #fff,
+                0 0 20px #ff6600,
+                0 0 30px #ff6600,
+                0 0 40px #ff6600,
+                0 0 55px #ff6600;
+        }
+        
+        /* Botones para cambiar el color */
+        .color-btn {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: inline-block;
+            transition: transform 0.2s;
+            margin: 0 5px;
+        }
+        
+        .color-btn:hover {
+            transform: scale(1.1);
+        }
+        
+        .color-btn.active {
+            border: 2px solid white;
+        }
+        
+        /* Estilos de fuente */
+        .font-bebas { font-family: 'Bebas Neue', sans-serif; }
+        .font-pacifico { font-family: 'Pacifico', cursive; }
+        .font-dancing { font-family: 'Dancing Script', cursive; }
+        .font-marker { font-family: 'Permanent Marker', cursive; }
+        .font-sacramento { font-family: 'Sacramento', cursive; }
+        
+        /* Estilos responsivos */
+        @media (max-width: 768px) {
+            .logo-container {
+                width: 100px;
+                height: 100px;
+            }
+            .neon-title {
+                font-size: 3.5rem;
+            }
+            .neon-text {
+                font-size: 3rem;
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .logo-container {
+                width: 80px;
+                height: 80px;
+            }
+            .neon-title {
+                font-size: 2.5rem;
+            }
+            .neon-text {
+                font-size: 2.5rem;
+            }
+        }

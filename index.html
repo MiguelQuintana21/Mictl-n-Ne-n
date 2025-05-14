@@ -1,438 +1,422 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mictlan Neon</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
-        
-        body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-        }
-        
-        .header-font {
-            font-family: 'Bebas Neue', sans-serif;
-        }
-        
-        .logo-container {
-            position: absolute;
-            width: 100px;
-            height: 100px;
-            top: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 2;
-        }
-        
-        .logo-circle {
-            width: 100%;
-            height: 100%;
-            background-color: transparent;
-            border: 3px solid #ffffff;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-            position: relative;
-        }
-        
-        /* Para usar con una imagen como logo */
-        .logo-circle img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-        }
+  <link rel="stylesheet" href="style/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mictlan Neon</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
-      /* Área de creación de neón */
-      .neon-creator {
-            background-color: #0c0c0c;
-            border-radius: 8px;
-            padding: 2rem;
-            margin-top: 2rem;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-        }
-        
-        /* Estilos para la vista previa del neón */
-        .neon-preview {
-            min-height: 200px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #000;
-            border-radius: 8px;
-            margin: 2rem 0;
-            padding: 2rem;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        /* El texto neón */
-        .neon-text {
-            font-family: 'Bebas Neue', sans-serif;
-            text-align: center;
-            color: #fff;
-            font-size: 4rem;
-            transition: all 0.3s ease;
-        }
-        
-        /* Estilos de colores para los neones */
-        .neon-pink {
-            text-shadow: 
-                0 0 5px #fff,
-                0 0 10px #fff,
-                0 0 20px #ff00de,
-                0 0 30px #ff00de,
-                0 0 40px #ff00de,
-                0 0 55px #ff00de;
-        }
-        
-        .neon-blue {
-            text-shadow: 
-                0 0 5px #fff,
-                0 0 10px #fff,
-                0 0 20px #0099ff,
-                0 0 30px #0099ff,
-                0 0 40px #0099ff,
-                0 0 55px #0099ff;
-        }
-        
-        .neon-green {
-            text-shadow: 
-                0 0 5px #fff,
-                0 0 10px #fff,
-                0 0 20px #04ff00,
-                0 0 30px #04ff00,
-                0 0 40px #04ff00,
-                0 0 55px #04ff00;
-        }
-        
-        .neon-purple {
-            text-shadow: 
-                0 0 5px #fff,
-                0 0 10px #fff,
-                0 0 20px #9900ff,
-                0 0 30px #9900ff,
-                0 0 40px #9900ff,
-                0 0 55px #9900ff;
-        }
-        
-        .neon-orange {
-            text-shadow: 
-                0 0 5px #fff,
-                0 0 10px #fff,
-                0 0 20px #ff6600,
-                0 0 30px #ff6600,
-                0 0 40px #ff6600,
-                0 0 55px #ff6600;
-        }
-        
-        /* Botones para cambiar el color */
-        .color-btn {
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            cursor: pointer;
-            display: inline-block;
-            transition: transform 0.2s;
-            margin: 0 5px;
-        }
-        
-        .color-btn:hover {
-            transform: scale(1.1);
-        }
-        
-        .color-btn.active {
-            border: 2px solid white;
-        }
-        
-        /* Estilos de fuente */
-        .font-bebas { font-family: 'Bebas Neue', sans-serif; }
-        .font-pacifico { font-family: 'Pacifico', cursive; }
-        .font-dancing { font-family: 'Dancing Script', cursive; }
-        .font-marker { font-family: 'Permanent Marker', cursive; }
-        .font-sacramento { font-family: 'Sacramento', cursive; }
-        
-        /* Estilos responsivos */
-        @media (max-width: 768px) {
-            .logo-container {
-                width: 100px;
-                height: 100px;
-            }
-            .neon-title {
-                font-size: 3.5rem;
-            }
-            .neon-text {
-                font-size: 3rem;
-            }
-        }
-        
-        @media (max-width: 640px) {
-            .logo-container {
-                width: 80px;
-                height: 80px;
-            }
-            .neon-title {
-                font-size: 2.5rem;
-            }
-            .neon-text {
-                font-size: 2.5rem;
-            }
-        }
-    </style>
+    .papel {
+  background-image: url('img/papel_7.webp');
+  background-repeat: repeat-x; /* Repite solo hacia la derecha (eje X) */
+  height: 100px; /* ajusta la altura según necesites */
+}
+
+
+
+  </style>
 </head>
-<body class="bg-white">
-    <!-- Header con logo de Mictlan Neon -->
-    <header class="bg-black py-4 relative">
-        <div class="container mx-auto px-4">
-            <div class="flex justify-between items-center">
-                <!-- Menú hamburguesa (visible en móvil) -->
-                <div class="block lg:hidden">
-                    <button id="menu-toggle" class="text-white hover:text-gray-300 transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
-                    </button>
-                </div>
-                
-                <!-- Enlaces de navegación (visibles en escritorio) -->
-                <nav class="hidden lg:flex space-x-10">
-                    <a href="index.html" class="text-white hover:text-gray-300 transition-colors font-medium header-font tracking-wider text-lg">INICIO</a>
-                    <a href="colecciones.html" class="text-white hover:text-gray-300 transition-colors font-medium header-font tracking-wider text-lg">COLECCIÓN</a>
-                </nav>
-                
-                <!-- Logo Central -->
-                <div class="logo-container">
-                    <div class="logo-circle">
-                        <!-- Opción 1: Usar una imagen como logo -->
-                        <img src="img/Mictlan_neon.png" alt="Logo">
-                        
-                        
-                    </div>
-                </div>
-                
 
-                <!-- Enlaces secundarios (visibles en escritorio) -->
-                <nav class="hidden lg:flex space-x-10">
-                    <a href="personalizar.html" class="text-white hover:text-gray-300 transition-colors font-medium header-font tracking-wider text-lg">PERSONALIZAR</a>
-                    <a href="#" class="text-white hover:text-gray-300 transition-colors font-medium header-font tracking-wider text-lg">CONTACTO</a>
-                </nav>
-                
-                <!-- Carrito (visible en móvil) -->
-                <div class="block lg:hidden">
-                    <button class="text-white hover:text-gray-300 transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-                        </svg>
-                    </button>
-                </div>
-            </div>
-            
-            <!-- Menú móvil (oculto por defecto) -->
-            <div id="mobile-menu" class="hidden mt-4 pb-2">
-                <div class="flex flex-col space-y-3">
-                    <a href="index.html" class="text-white hover:text-gray-300 transition-colors font-medium header-font tracking-wider text-lg">INICIO</a>
-                    <a href="colecciones.html" class="text-white hover:text-gray-300 transition-colors font-medium header-font tracking-wider text-lg">COLECCIÓN</a>
-                    <a href="personalizar.html" class="text-white hover:text-gray-300 transition-colors font-medium header-font tracking-wider text-lg">PERSONALIZAR</a>
-                    <a href="#" class="text-white hover:text-gray-300 transition-colors font-medium header-font tracking-wider text-lg">CONTACTO</a>
-                </div>
-            </div>
+<body class="bg-white">
+  <!-- Header con logo de Mictlan Neon -->
+  <header class="bg-black py-4 relative">
+    <div class="container mx-auto px-4">
+      <div class="flex justify-between items-center">
+        <!-- Menú hamburguesa (visible en móvil) -->
+        <div class="block lg:hidden">
+          <button id="menu-toggle" class="text-white hover:text-gray-300 transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
         </div>
-        
-    </header>
-    <div class="bg-white shadow-sm">
-        <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-          <h1 class="text-3xl font-bold header-font tracking-tight text-gray-900">INICIO</h1>
+
+        <!-- Enlaces de navegación (visibles en escritorio) -->
+        <nav class="hidden lg:flex space-x-10">
+          <a href="index.html"
+            class="text-white hover:text-gray-300 transition-colors font-medium header-font tracking-wider text-lg">INICIO</a>
+          <a href="colecciones.html"
+            class="text-white hover:text-gray-300 transition-colors font-medium header-font tracking-wider text-lg">COLECCIÓN</a>
+        </nav>
+
+        <!-- Logo Central -->
+        <div class="logo-container">
+          <div class="logo-circle">
+            <!-- Opción 1: Usar una imagen como logo -->
+            <img src="img/Mictlan_neon.png" alt="Logo">
+
+
+          </div>
+        </div>
+
+
+        <!-- Enlaces secundarios (visibles en escritorio) -->
+        <nav class="hidden lg:flex space-x-10">
+          <a href="personalizar.html"
+            class="text-white hover:text-gray-300 transition-colors font-medium header-font tracking-wider text-lg">PERSONALIZAR</a>
+          <a href="#"
+            class="text-white hover:text-gray-300 transition-colors font-medium header-font tracking-wider text-lg">CONTACTO</a>
+        </nav>
+
+        <!-- Carrito (visible en móvil) -->
+        <div class="block lg:hidden">
+          <button class="text-white hover:text-gray-300 transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+            </svg>
+          </button>
         </div>
       </div>
-    <!-- Contenido de ejemplo -->
-    <main class="container mx-auto">
 
-        <div class="relative overflow-hidden bg-white">
-            <div class="pt-16 pb-80 sm:pt-24 sm:pb-40 lg:pt-40 lg:pb-48">
-              <div class="relative mx-auto max-w-7xl px-4 sm:static sm:px-6 lg:px-8">
-                <div class="sm:max-w-lg">
-                  <h1 class="text-4xl font-bold header-font tracking-tight text-gray-900 sm:text-6xl">Donde la cultura brilla</h1>
-                  <p class="mt-4 text-xl text-gray-500 header-font">échale un vistazo a la colección de neones de Mictlan Neon.</p>
-                </div>
-                <div>
-                  <div class="mt-10">
-                    <!-- Decorative image grid -->
-                    <div aria-hidden="true" class="pointer-events-none lg:absolute lg:inset-y-0 lg:mx-auto lg:w-full lg:max-w-7xl">
-                      <div class="absolute transform sm:top-0 sm:left-1/2 sm:translate-x-8 lg:top-1/2 lg:left-1/2 lg:translate-x-8 lg:-translate-y-1/2">
-                        <div class="flex items-center space-x-6 lg:space-x-8">
-                          <div class="grid shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
-                            <div class="h-64 w-44 overflow-hidden rounded-lg sm:opacity-0 lg:opacity-100">
-                              <img src="img/img1.jpg" alt="" class="size-full object-cover">
-                            </div>
-                            <div class="h-64 w-44 overflow-hidden rounded-lg">
-                              <img src="img/img2.jpg" alt="" class="size-full object-cover">
-                            </div>
-                          </div>
-                          <div class="grid shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
-                            <div class="h-64 w-44 overflow-hidden rounded-lg">
-                              <img src="img/img3.jpg" alt="" class="size-full object-cover">
-                            </div>
-                            <div class="h-64 w-44 overflow-hidden rounded-lg">
-                              <img src="img/img11.jpg" alt="" class="size-full object-cover">
-                            </div>
-                            <div class="h-64 w-44 overflow-hidden rounded-lg">
-                              <img src="img/img5.jpg" alt="" class="size-full object-cover">
-                            </div>
-                          </div>
-                          <div class="grid shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
-                            <div class="h-64 w-44 overflow-hidden rounded-lg">
-                              <img src="img/img6.jpg" alt="" class="size-full object-cover">
-                            </div>
-                            <div class="h-64 w-44 overflow-hidden rounded-lg">
-                              <img src="img/img7.jpg" alt="" class="size-full object-cover">
-                            </div>
-                          </div>
-                        </div>
+      <!-- Menú móvil (oculto por defecto) -->
+      <div id="mobile-menu" class="hidden mt-4 pb-2">
+        <div class="flex flex-col space-y-3">
+          <a href="index.html"
+            class="text-white hover:text-gray-300 transition-colors font-medium header-font tracking-wider text-lg">INICIO</a>
+          <a href="colecciones.html"
+            class="text-white hover:text-gray-300 transition-colors font-medium header-font tracking-wider text-lg">COLECCIÓN</a>
+          <a href="personalizar.html"
+            class="text-white hover:text-gray-300 transition-colors font-medium header-font tracking-wider text-lg">PERSONALIZAR</a>
+          <a href="#"
+            class="text-white hover:text-gray-300 transition-colors font-medium header-font tracking-wider text-lg">CONTACTO</a>
+        </div>
+      </div>
+    </div>
+
+  </header>
+  <div class="papel"></div>
+
+  <div class="bg-white shadow-sm">
+    <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+      <h1 class="text-3xl font-bold header-font tracking-tight text-gray-900">INICIO</h1>
+    </div>
+  </div>
+  <br>
+  <br>
+  <br>
+
+  <!-- Contenido de ejemplo -->
+  <main class="container mx-auto">
+
+    <div class="relative overflow-hidden bg-white">
+      <div class="pt-16 pb-80 sm:pt-24 sm:pb-40 lg:pt-40 lg:pb-48">
+        <div class="relative mx-auto max-w-7xl px-4 sm:static sm:px-6 lg:px-8">
+          <div class="sm:max-w-lg">
+            <h1 class="text-4xl font-bold header-font tracking-tight text-gray-900 sm:text-6xl">Donde la cultura brilla
+            </h1>
+            <p class="mt-4 text-xl text-gray-500 header-font">échale un vistazo a la colección de neones de Mictlan
+              Neon.</p>
+          </div>
+          <div>
+            <div class="mt-10">
+              <!-- Decorative image grid -->
+              <div aria-hidden="true"
+                class="pointer-events-none lg:absolute lg:inset-y-0 lg:mx-auto lg:w-full lg:max-w-7xl">
+                <div
+                  class="absolute transform sm:top-0 sm:left-1/2 sm:translate-x-8 lg:top-1/2 lg:left-1/2 lg:translate-x-8 lg:-translate-y-1/2">
+                  <div class="flex items-center space-x-6 lg:space-x-8">
+                    <div class="grid shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
+                      <div class="h-64 w-44 overflow-hidden rounded-lg sm:opacity-0 lg:opacity-100">
+                        <img src="img/img1.jpg" alt="" class="size-full object-cover">
+                      </div>
+                      <div class="h-64 w-44 overflow-hidden rounded-lg">
+                        <img src="img/img2.jpg" alt="" class="size-full object-cover">
                       </div>
                     </div>
-          
-                    <a href="#" class="inline-block rounded-md border border-transparent bg-black px-8 py-3 text-center font-medium text-white hover:bg-gray-700 header-font">VER COLECCIONES</a>
+                    <div class="grid shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
+                      <div class="h-64 w-44 overflow-hidden rounded-lg">
+                        <img src="img/img3.jpg" alt="" class="size-full object-cover">
+                      </div>
+                      <div class="h-64 w-44 overflow-hidden rounded-lg">
+                        <img src="img/img11.jpg" alt="" class="size-full object-cover">
+                      </div>
+                      <div class="h-64 w-44 overflow-hidden rounded-lg">
+                        <img src="img/img5.jpg" alt="" class="size-full object-cover">
+                      </div>
+                    </div>
+                    <div class="grid shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
+                      <div class="h-64 w-44 overflow-hidden rounded-lg">
+                        <img src="img/img6.jpg" alt="" class="size-full object-cover">
+                      </div>
+                      <div class="h-64 w-44 overflow-hidden rounded-lg">
+                        <img src="img/img7.jpg" alt="" class="size-full object-cover">
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
+
+              <a href="#"
+                class="inline-block rounded-md border border-transparent bg-black px-8 py-3 text-center font-medium text-white hover:bg-gray-700 header-font">VER
+                COLECCIONES</a>
             </div>
           </div>
-          
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-white py-24 sm:py-32">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <h2 class="text-center text-lg/8 font-semibold text-gray-900 header-font">Alebrijes Mexicanos</h2>
+    <div class="mx-auto mt-10 grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-5">
+<img class="col-span-2 max-h-32 w-full object-contain lg:col-span-1" src="img/alebrije/alebrije_1.webp" width="158" height="48">
+<img class="col-span-2 max-h-32 w-full object-contain lg:col-span-1" src="img/alebrije/alebrije_2.webp" width="158" height="48">
+<img class="col-span-2 max-h-32 w-full object-contain lg:col-span-1" src="img/alebrije/alebrije_3.webp" width="158" height="48">
+<img class="col-span-2 max-h-32 w-full object-contain lg:col-span-1" src="img/alebrije/alebrije_4.webp" width="158" height="48">
+<img class="col-span-2 max-h-32 w-full object-contain lg:col-span-1" src="img/alebrije/alebrije_5.webp" width="158" height="48">
+    </div>
+  </div>
+</div>
 
 
-          <div class="bg-white py-50 py-24 sm:py-32">
-            <div class="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
-              <p class="mx-auto mt-2 max-w-lg text-center text-4xl font-semibold tracking-tight text-balance text-gray-950 sm:text-5xl header-font">¿QUÉ HACEMOS EN MICTLAN NEON?
-            </p>
-              <div class="mt-10 grid gap-4 sm:mt-16 lg:grid-cols-3 lg:grid-rows-2">
-                <div class="relative lg:row-span-2">
-                  <div class="absolute inset-px rounded-lg bg-white lg:rounded-l-[2rem]"></div>
-                  <div class="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)] lg:rounded-l-[calc(2rem+1px)]">
-                    <div class="px-8 pt-8 pb-3 sm:px-10 sm:pt-10 sm:pb-0">
-                      <p class="mt-2 text-lg font-medium tracking-tight text-gray-950 max-lg:text-center header-font">Letreros de Neón y Acrílicos</p>
-                      <p class="mt-2 max-w-lg text-sm/6 text-gray-600 max-lg:text-center header-font">Tu idea, nuestra luz. Dale forma con neón y acrílico.</p>
-                    </div>
+
+
+    <div class="bg-white py-50 py-24 sm:py-32">
+      <div class="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
+        <p
+          class="mx-auto mt-2 max-w-lg text-center text-4xl font-semibold tracking-tight text-balance text-gray-950 sm:text-5xl header-font">
+          ¿QUÉ HACEMOS EN MICTLAN NEON?
+        </p>
+        <div class="mt-10 grid gap-4 sm:mt-16 lg:grid-cols-3 lg:grid-rows-2">
+          <div class="relative lg:row-span-2">
+            <div class="absolute inset-px rounded-lg bg-white lg:rounded-l-[2rem]"></div>
+            <div
+              class="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)] lg:rounded-l-[calc(2rem+1px)]">
+              <div class="px-8 pt-8 pb-3 sm:px-10 sm:pt-10 sm:pb-0">
+                <p class="mt-2 text-lg font-medium tracking-tight text-gray-950 max-lg:text-center header-font">Letreros
+                  de Neón y Acrílicos</p>
+                <p class="mt-2 max-w-lg text-sm/6 text-gray-600 max-lg:text-center header-font">Tu idea, nuestra luz.
+                  Dale forma con neón y acrílico.</p>
+              </div>
+              <div class="@container relative min-h-[30rem] w-full grow max-lg:mx-auto max-lg:max-w-sm">
+                <div
+                  class="absolute inset-x-10 top-10 bottom-0 overflow-hidden rounded-t-[12cqw] border-x-[3cqw] border-t-[3cqw] border-black bg-black shadow-2xl">
+                  <img class="size-full object-cover object-top" src="img/img9.png" alt="">
+                </div>
+              </div>
+            </div>
+            <div
+              class="pointer-events-none absolute inset-px rounded-lg shadow-sm ring-1 ring-black/5 lg:rounded-l-[2rem]">
+            </div>
+          </div>
+          <div class="relative max-lg:row-start-1">
+            <div class="absolute inset-px rounded-lg bg-white max-lg:rounded-t-[2rem]"></div>
+            <div
+              class="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)] max-lg:rounded-t-[calc(2rem+1px)]">
+              <div class="px-8 pt-8 sm:px-10 sm:pt-10">
+                <p class="mt-2 text-lg font-medium tracking-tight text-gray-950 max-lg:text-center header-font">VENTA DE
+                  LETREROS DE NEÓN Y ACRÍLICOS</p>
+              </div>
+              <div class="flex flex-1 items-center justify-center px-8 max-lg:pt-10 max-lg:pb-12 sm:px-10 lg:pb-2">
+                <img class="h-[min(80px,40cqw)] object-cover" src="img/venta.png" alt="">
+              </div>
+            </div>
+            <div
+              class="pointer-events-none absolute inset-px rounded-lg shadow-sm ring-1 ring-black/5 max-lg:rounded-t-[2rem]">
+            </div>
+          </div>
+          <div class="relative max-lg:row-start-3 lg:col-start-2 lg:row-start-2">
+            <div class="absolute inset-px rounded-lg bg-white"></div>
+            <div class="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)]">
+              <div class="px-8 pt-8 sm:px-10 sm:pt-10">
+                <p class="mt-2 text-lg font-medium tracking-tight text-gray-950 max-lg:text-center header-font">RENTA DE
+                  LETREROS DE NEÓN Y ACRÍLICOS</p>
+              </div>
+              <div class="@container flex flex-1 items-center justify-center max-lg:py-6 lg:pb-2">
+                <img class="h-[min(80px,40cqw)] object-cover" src="img/renta.png" alt="">
+              </div>
+            </div>
+            <div class="pointer-events-none absolute inset-px rounded-lg shadow-sm ring-1 ring-black/5"></div>
+          </div>
+          <div class="relative lg:row-span-2">
+            <div class="absolute inset-px rounded-lg bg-white max-lg:rounded-b-[2rem] lg:rounded-r-[2rem]"></div>
+            <div
+              class="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)] max-lg:rounded-b-[calc(2rem+1px)] lg:rounded-r-[calc(2rem+1px)]">
+              <div class="px-8 pt-8 pb-3 sm:px-10 sm:pt-10 sm:pb-0">
+                <p class="mt-2 text-lg font-medium tracking-tight text-gray-950 max-lg:text-center header-font">CURSOS
+                  DE FABRICACIÓN DE NEÓN Y ACRÍLICOS</p>
+                <p class="mt-2 max-w-lg text-sm/6 text-gray-600 max-lg:text-center header-font">Transforma tus ideas en
+                  luz con nuestras clases prácticas.</p>
+              </div>
+              <div class="relative min-h-[30rem] w-full grow">
+                <div
+                  class="absolute top-10 right-0 bottom-0 left-10 overflow-hidden rounded-tl-xl bg-gray-900 shadow-2xl">
+                  <div class="flex bg-gray-800/40 ring-1 ring-white/5">
                     <div class="@container relative min-h-[30rem] w-full grow max-lg:mx-auto max-lg:max-w-sm">
-                      <div class="absolute inset-x-10 top-10 bottom-0 overflow-hidden rounded-t-[12cqw] border-x-[3cqw] border-t-[3cqw] border-black bg-black shadow-2xl">
-                        <img class="size-full object-cover object-top" src="img/img9.png" alt="">
+                      <div class="absolute inset-x-10 top-10 bottom-0 overflow-hidden ">
+                        <img class="size-full object-cover object-top" src="img/img10.jpg" alt="">
                       </div>
                     </div>
                   </div>
-                  <div class="pointer-events-none absolute inset-px rounded-lg shadow-sm ring-1 ring-black/5 lg:rounded-l-[2rem]"></div>
-                </div>
-                <div class="relative max-lg:row-start-1">
-                  <div class="absolute inset-px rounded-lg bg-white max-lg:rounded-t-[2rem]"></div>
-                  <div class="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)] max-lg:rounded-t-[calc(2rem+1px)]">
-                    <div class="px-8 pt-8 sm:px-10 sm:pt-10">
-                      <p class="mt-2 text-lg font-medium tracking-tight text-gray-950 max-lg:text-center header-font">VENTA DE LETREROS DE NEÓN Y ACRÍLICOS</p>
-                    </div>
-                    <div class="flex flex-1 items-center justify-center px-8 max-lg:pt-10 max-lg:pb-12 sm:px-10 lg:pb-2">
-                      <img class="h-[min(80px,40cqw)] object-cover" src="img/venta.png" alt="">
-                    </div>
+                  <div class="px-6 pt-6 pb-14">
+                    <!-- Your code example -->
                   </div>
-                  <div class="pointer-events-none absolute inset-px rounded-lg shadow-sm ring-1 ring-black/5 max-lg:rounded-t-[2rem]"></div>
-                </div>
-                <div class="relative max-lg:row-start-3 lg:col-start-2 lg:row-start-2">
-                  <div class="absolute inset-px rounded-lg bg-white"></div>
-                  <div class="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)]">
-                    <div class="px-8 pt-8 sm:px-10 sm:pt-10">
-                      <p class="mt-2 text-lg font-medium tracking-tight text-gray-950 max-lg:text-center header-font">RENTA DE LETREROS DE NEÓN Y ACRÍLICOS</p>
-                    </div>
-                    <div class="@container flex flex-1 items-center justify-center max-lg:py-6 lg:pb-2">
-                      <img class="h-[min(80px,40cqw)] object-cover" src="img/renta.png" alt="">
-                    </div>
-                  </div>
-                  <div class="pointer-events-none absolute inset-px rounded-lg shadow-sm ring-1 ring-black/5"></div>
-                </div>
-                <div class="relative lg:row-span-2">
-                  <div class="absolute inset-px rounded-lg bg-white max-lg:rounded-b-[2rem] lg:rounded-r-[2rem]"></div>
-                  <div class="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)] max-lg:rounded-b-[calc(2rem+1px)] lg:rounded-r-[calc(2rem+1px)]">
-                    <div class="px-8 pt-8 pb-3 sm:px-10 sm:pt-10 sm:pb-0">
-                      <p class="mt-2 text-lg font-medium tracking-tight text-gray-950 max-lg:text-center header-font">CURSOS DE FABRICACIÓN DE NEÓN Y ACRÍLICOS</p>
-                      <p class="mt-2 max-w-lg text-sm/6 text-gray-600 max-lg:text-center header-font">Transforma tus ideas en luz con nuestras clases prácticas.</p>
-                    </div>
-                    <div class="relative min-h-[30rem] w-full grow">
-                      <div class="absolute top-10 right-0 bottom-0 left-10 overflow-hidden rounded-tl-xl bg-gray-900 shadow-2xl">
-                        <div class="flex bg-gray-800/40 ring-1 ring-white/5">
-                            <div class="@container relative min-h-[30rem] w-full grow max-lg:mx-auto max-lg:max-w-sm">
-                                <div class="absolute inset-x-10 top-10 bottom-0 overflow-hidden ">
-                                  <img class="size-full object-cover object-top" src="img/img10.jpg" alt="">
-                                </div>
-                              </div>
-                        </div>
-                        <div class="px-6 pt-6 pb-14">
-                          <!-- Your code example -->
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="pointer-events-none absolute inset-px rounded-lg shadow-sm ring-1 ring-black/5 max-lg:rounded-b-[2rem] lg:rounded-r-[2rem]"></div>
                 </div>
               </div>
             </div>
-          </div>
-          
-
-          <div class="bg-white shadow-sm">
-            <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-              <h1 class="text-3xl font-bold header-font tracking-tight text-gray-900">NUESTROS PRODUCTOS</h1>
+            <div
+              class="pointer-events-none absolute inset-px rounded-lg shadow-sm ring-1 ring-black/5 max-lg:rounded-b-[2rem] lg:rounded-r-[2rem]">
             </div>
           </div>
-       
-          <div class="bg-white">
-            <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-              <h2 class="sr-only">Products</h2>
-          
-              <div class="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-                <a href="#" class="group">
-                  <img src="img/img6.jpg" alt="Tall slender porcelain bottle with natural clay textured body and cork stopper." class="aspect-square w-full rounded-lg bg-gray-200 object-cover group-hover:opacity-75 xl:aspect-7/8">
-                  <h3 class="mt-4 text-sm text-gray-700">NEÓN MUSCULOS</h3>
-                  <p class="mt-1 text-lg font-medium text-gray-900">$2000MX</p>
-                </a>
-                <a href="#" class="group">
-                  <img src="img/img3.jpg" alt="Olive drab green insulated bottle with flared screw lid and flat top." class="aspect-square w-full rounded-lg bg-gray-200 object-cover group-hover:opacity-75 xl:aspect-7/8">
-                  <h3 class="mt-4 text-sm text-gray-700">NEÓN PROPUESTA MATRIMONIAL</h3>
-                  <p class="mt-1 text-lg font-medium text-gray-900">$3000MX</p>
-                </a>
-                <a href="#" class="group">
-                  <img src="img/img2.jpg" alt="Person using a pen to cross a task off a productivity paper card." class="aspect-square w-full rounded-lg bg-gray-200 object-cover group-hover:opacity-75 xl:aspect-7/8">
-                  <h3 class="mt-4 text-sm text-gray-700">NEÓN CAFETERÍA</h3>
-                  <p class="mt-1 text-lg font-medium text-gray-900">$3500MX</p>
-                </a>
-                <a href="#" class="group">
-                  <img src="img/img7.jpg" alt="Hand holding black machined steel mechanical pencil with brass tip and top." class="aspect-square w-full rounded-lg bg-gray-200 object-cover group-hover:opacity-75 xl:aspect-7/8">
-                  <h3 class="mt-4 text-sm text-gray-700">NEÓN JALAPEÑOS</h3>
-                  <p class="mt-1 text-lg font-medium text-gray-900">$2500MX</p>
-                </a>
-          
-                <!-- More products... -->
-              </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="bg-white shadow-sm">
+      <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+        <h1 class="text-3xl font-bold header-font tracking-tight text-gray-900">NUESTROS PRODUCTOS</h1>
+      </div>
+    </div>
+
+    <div class="bg-white">
+      <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+        <h2 class="sr-only">Products</h2>
+
+        <div class="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
+          <a href="detalle_producto.html" class="group">
+            <img src="img/img6.jpg"
+              alt="Tall slender porcelain bottle with natural clay textured body and cork stopper."
+              class="aspect-square w-full rounded-lg bg-gray-200 object-cover group-hover:opacity-75 xl:aspect-7/8">
+            <h3 class="mt-4 text-sm text-gray-700">NEÓN MUSCULOS</h3>
+            <p class="mt-1 text-lg font-medium text-gray-900">$2000MX</p>
+          </a>
+          <a href="#" class="group">
+            <img src="img/img3.jpg" alt="Olive drab green insulated bottle with flared screw lid and flat top."
+              class="aspect-square w-full rounded-lg bg-gray-200 object-cover group-hover:opacity-75 xl:aspect-7/8">
+            <h3 class="mt-4 text-sm text-gray-700">NEÓN PROPUESTA MATRIMONIAL</h3>
+            <p class="mt-1 text-lg font-medium text-gray-900">$3000MX</p>
+          </a>
+          <a href="#" class="group">
+            <img src="img/img2.jpg" alt="Person using a pen to cross a task off a productivity paper card."
+              class="aspect-square w-full rounded-lg bg-gray-200 object-cover group-hover:opacity-75 xl:aspect-7/8">
+            <h3 class="mt-4 text-sm text-gray-700">NEÓN CAFETERÍA</h3>
+            <p class="mt-1 text-lg font-medium text-gray-900">$3500MX</p>
+          </a>
+          <a href="#" class="group">
+            <img src="img/img7.jpg" alt="Hand holding black machined steel mechanical pencil with brass tip and top."
+              class="aspect-square w-full rounded-lg bg-gray-200 object-cover group-hover:opacity-75 xl:aspect-7/8">
+            <h3 class="mt-4 text-sm text-gray-700">NEÓN JALAPEÑOS</h3>
+            <p class="mt-1 text-lg font-medium text-gray-900">$2500MX</p>
+          </a>
+
+          <!-- More products... -->
+        </div>
+      </div>
+    </div>
+    <!-- Footer -->
+
+
+
+
+  </main>
+  <div class="papel"></div>
+
+  <footer class="bg-black text-white pt-12 pb-8">
+    <div class="container mx-auto px-4">
+      <!-- Grid principal del footer -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+        <!-- Columna 1: Logo y descripción -->
+        <div class="flex flex-col items-center md:items-start">
+          <div class="w-20 h-20 mb-4">
+            <div class="container_footer_logo"
+              class="border-2 border-white rounded-full p-2 flex items-center justify-center">
+              <img class="imagen_footer_logo" src="img/Mictlan_neon.png" alt="Logo Mictlan Neon"
+                class="w-full h-full object-contain">
             </div>
           </div>
+          <p class="text-sm text-gray-400 text-center md:text-left mt-2">
+            Iluminando tus espacios con la magia del neón y la riqueza cultural mexicana.
+          </p>
+        </div>
+
+        <!-- Columna 2: Enlaces rápidos -->
+        <div>
+          <h3 class="text-xl mb-4 header-font tracking-wider">NAVEGACIÓN</h3>
+          <ul class="space-y-2">
+            <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors">INICIO</a></li>
+            <li><a href="colecciones.html" class="text-gray-400 hover:text-white transition-colors">COLECCIÓN</a></li>
+            <li><a href="personalizar.html" class="text-gray-400 hover:text-white transition-colors">PERSONALIZAR</a>
+            </li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">CONTACTO</a></li>
+          </ul>
+        </div>
+
+        <!-- Columna 3: Servicios -->
+        <div>
+          <h3 class="text-xl mb-4 header-font tracking-wider">SERVICIOS</h3>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Venta de Neón</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Renta de Neón</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Cursos de Fabricación</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Neón Personalizado</a></li>
+          </ul>
+        </div>
+
+        <!-- Columna 4: Contacto y redes sociales -->
+        <div>
+          <h3 class="text-xl mb-4 header-font tracking-wider">CONTACTO</h3>
+          <p class="text-gray-400 mb-2">contacto@mictlanneon.com</p>
+          <p class="text-gray-400 mb-4">+52 55 1234 5678</p>
+
+          <!-- Iconos de redes sociales -->
+          <div class="flex space-x-4 mt-4">
+            <a href="#" class="text-white hover:text-gray-300 transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" />
+              </svg>
+            </a>
+            <a href="#" class="text-white hover:text-gray-300 transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+              </svg>
+            </a>
           
-          
-     
-    </main>
-    
-    <script>
-        // Toggle para el menú móvil
-        document.addEventListener('DOMContentLoaded', () => {
-            const menuToggle = document.getElementById('menu-toggle');
-            const mobileMenu = document.getElementById('mobile-menu');
-            
-            menuToggle.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
-        });
-
-        
-    </script>
+          </div>
+        </div>
+      </div>
 
 
-  
+
+      <!-- Copyright y aviso legal -->
+      <div class="border-t border-gray-800 mt-6 pt-6 flex flex-col md:flex-row justify-between items-center">
+        <p class="text-sm text-gray-500 mb-4 md:mb-0">&copy; 2025 Mictlan Neon.</p>
+        <div class="flex space-x-4">
+          <a href="#" class="text-sm text-gray-500 hover:text-white transition-colors">Política de Privacidad</a>
+          <a href="#" class="text-sm text-gray-500 hover:text-white transition-colors">Términos y Condiciones</a>
+          <a href="#" class="text-sm text-gray-500 hover:text-white transition-colors">Aviso Legal</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Toggle para el menú móvil
+    document.addEventListener('DOMContentLoaded', () => {
+      const menuToggle = document.getElementById('menu-toggle');
+      const mobileMenu = document.getElementById('mobile-menu');
+
+      menuToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    });
+
+
+  </script>
+
+
+
 </body>
+
 </html>
